@@ -3,8 +3,6 @@ import mysql.connector
 from datetime import date
 import pandas as pd
 import os
-
-# FIX: Matplotlib backend (VERY IMPORTANT)
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
