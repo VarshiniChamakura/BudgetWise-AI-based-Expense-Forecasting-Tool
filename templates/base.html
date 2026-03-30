@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BudgetWise Tracker</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-wallet"></i>
+            <span>BudgetWise Tracker</span>
+        </div>
+
+        <ul class="menu">
+
+            <li><a href="/dashboard"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+            <li><a href="/monthly-budget"><i class="fa-solid fa-coins"></i> Monthly Budget</a></li>
+            <li><a href="/add-expense"><i class="fa-solid fa-plus-circle"></i> Add Expense</a></li>
+            <li><a href="/categories"><i class="fa-solid fa-layer-group"></i> Categories</a></li>
+            <li><a href="/recent-expenses"><i class="fa-solid fa-clock-rotate-left"></i> Recent Expenses</a></li>
+            <li><a href="/reports"><i class="fa-solid fa-chart-simple"></i> Reports</a></li>
+            <li><a href="/forecast"><i class="fa-solid fa-wand-magic-sparkles"></i> Forecast</a></li>
+
+            <hr class="divider">
+
+            <li><a href="/account"><i class="fa-solid fa-user"></i> Account</a></li>
+            <li><a href="/settings"><i class="fa-solid fa-gear"></i> Settings</a></li>
+            <li><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+
+        </ul>
+    </div>
+
+
+    <!-- MAIN SECTION -->
+    <div class="main">
+
+        <!-- TOPBAR -->
+        <div class="topbar">
+
+            <h2>Welcome, {{ username }}</h2>
+
+            <div class="top-icons">
+                <i class="fa-regular fa-bell"></i>
+                <i class="fa-regular fa-user-circle"></i>
+            </div>
+
+        </div>
+
+        <!-- PAGE CONTENT -->
+        {% block content %}{% endblock %}
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='add_expense.css') }}">
+
+<div class="page-wrapper">
+
+    <div class="form-card">
+
+        <h2>
+            <i class="fa-solid fa-plus-circle"></i>
+            Add New Expense
+        </h2>
+
+        <form method="POST" action="/add-expense">
+
+            <div class="form-group">
+                <label>Date</label>
+                <input type="date" name="date" required>
+            </div>
+
+            <div class="form-group">
+                <label>Amount (₹)</label>
+                <input type="number" name="amount" placeholder="Enter amount" required>
+            </div>
+
+            <div class="form-group">
+                <label>Category</label>
+                <select name="category" required>
+                    <option value="">Select Category</option>
+                    <option>Food</option>
+                    <option>Transport</option>
+                    <option>Fuel</option>
+                    <option>Shopping</option>
+                    <option>Groceries</option>
+                    <option>Fees</option>
+                    <option>Bills</option>
+                    <option>Entertainment</option>
+                    <option>Health</option>
+                    <option>Others</option>
+                </select>
+            </div>
+
+            
+
+            <div class="form-group">
+                <label>Description</label>
+                <textarea name="notes" placeholder="Add extra details..."></textarea>
+            </div>
+
+            <button type="submit" class="primary-btn">
+                <i class="fa-solid fa-check"></i> Save Expense
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

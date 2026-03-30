@@ -1,0 +1,210 @@
+/* ========== GLOBAL ========== */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
+}
+
+.dashboard {
+    display: flex;
+}
+
+/* ========== SIDEBAR ========== */
+ .sidebar {
+    position: fixed;          /* IMPORTANT */
+    left: 0;
+    top: 0;
+    height: 100vh;            /* Full screen height */
+    width: 260px;
+    background: linear-gradient(180deg, #111827, #1f2937);
+    color: #fff;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+    overflow-y: auto;         /* If menu grows, only sidebar scrolls */
+}
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 35px;
+}
+
+.logo i {
+    font-size: 22px;
+    color: #6366f1;
+}
+
+/* Menu */
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+}
+
+.menu li {
+    margin-bottom: 8px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #d1d5db;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.menu li a i {
+    width: 18px;
+}
+
+/* Hover effect */
+.menu li a:hover {
+    background: rgba(99,102,241,0.15);
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+/* Active link */
+.menu li a.active {
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    color: white;
+    box-shadow: 0 0 15px rgba(139,92,246,0.4);
+}
+
+/* Divider */
+.divider {
+    border: none;
+    border-top: 1px dashed #4b5563;
+    margin: 20px 0;
+}
+
+/* Gemini Glow for Forecast */
+.fa-sparkles {
+    color: #a855f7;
+}
+
+.menu li a:hover .fa-sparkles {
+    text-shadow: 0 0 10px rgba(168,85,247,0.8);
+}
+
+/* ========== MAIN SECTION ========== */
+.main {
+    margin-left: 300px;   /* SAME WIDTH as sidebar */
+    padding: 15px 30px;
+    flex: 1;
+}
+
+/* Topbar */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.topbar h3 {
+    font-weight: 500;
+    color: #111827;
+}
+
+.top-icons i {
+    font-size: 20px;
+    margin-left: 18px;
+    cursor: pointer;
+    color: #374151;
+    transition: 0.3s;
+}
+
+.top-icons i:hover {
+    color: #6366f1;
+}
+
+/* ========== CARDS ========== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.card {
+    padding: 22px;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h4 {
+    margin: 0 0 10px;
+    font-weight: 500;
+}
+
+.card p {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Card Colors */
+.green { background: linear-gradient(135deg, #10b981, #059669); }
+.blue { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.orange { background: linear-gradient(135deg, #f59e0b, #ea580c); }
+.red { background: linear-gradient(135deg, #ef4444, #dc2626); }
+
+/* ========== CHART SECTION ========== */
+.charts {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.chart-box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.chart-placeholder {
+    height: 200px;
+    background: #f3f4f6;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+}
+
+/* ========== FORECAST BOX ========== */
+.forecast-box {
+    background: linear-gradient(135deg, #ede9fe, #f5f3ff);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.forecast-box h4 {
+    margin-bottom: 10px;
+    color: #6d28d9;
+}
+
+.forecast-box p {
+    margin: 5px 0;
+    color: #374151;
+}

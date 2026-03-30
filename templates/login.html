@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>BUDGETWISE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="project-title">
+        BudgetWise AI-based Expense Forecasting Tool
+    </div>
+
+    <div class="center-area">
+        <div class="login-box">
+
+            <!-- LOGIN -->
+            <div id="loginSection">
+                <h2>Login</h2>
+
+                <div id="loginError" class="top-error hidden"></div>
+
+                <form id="loginForm">
+                    <div class="field-label">Username <span>*</span></div>
+                    <input type="text" name="username" required>
+
+                    <div class="field-label">Password <span>*</span></div>
+                    <input type="password" name="password" required maxlength="10">
+
+                    <div class="forgot-link">
+                        <a href="{{ url_for('change_password_page') }}">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit">Login</button>
+                </form>
+
+                <p>
+                    Don't have an account?
+                    <a href="#" onclick="showRegister()">Sign up</a>
+                </p>
+            </div>
+
+            <!-- REGISTER -->
+            <div id="registerSection" class="hidden">
+                <h2>Register</h2>
+
+                <form id="registerForm">
+                    <div class="field-label">Email <span>*</span></div>
+                    <input type="email" name="email" required>
+
+                    <div class="field-label">Username <span>*</span></div>
+                    <input type="text" name="username" required>
+
+                    <div class="field-label">Password <span>*</span></div>
+                    <input type="password" name="password" id="password"
+                           required maxlength="10" onkeyup="checkPassword()">
+
+                    <div class="rule">
+                        <span id="len">8–10 characters</span>,
+                        <span id="digit">1 digit</span>,
+                        <span id="special">1 special character</span>
+                    </div>
+
+                    <div class="field-label">Confirm Password <span>*</span></div>
+                    <input type="password" id="confirmPassword"
+                           name="confirmPassword" required maxlength="10">
+
+                    <button type="submit">Register</button>
+                </form>
+
+                <p>
+                    Already have an account?
+                    <a href="#" onclick="showLogin()">Login</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+function showRegister(){
+    document.getElementById("loginSection").classList.add("hidden");
+    document.getElementById("registerSection").classList.remove("hidden");
+}
+
+function showLogin(){
+    document.getElementById("registerSection").classList.add("hidden");
+    document.getElementById("loginSection").classList.remove("hidden");
+}
+
+/* LOGIN */
+document.getElementById("loginForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    fetch("/login", {
+        method: "POST",
+        body: new FormData(this)
+    })
+    .then(response => response.json())
+    .then(result => {
+        if(result.status === "success"){
+            window.location.href = "/dashboard";
+        } else {
+            document.getElementById("loginError").classList.remove("hidden");
+            document.getElementById("loginError").innerText = result.message;
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+});
+
+/* REGISTER */
+document.getElementById("registerForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const pwd = document.getElementById("password").value;
+    const cpwd = document.getElementById("confirmPassword").value;
+
+    if(pwd !== cpwd){
+        alert("Passwords do not match");
+        return;
+    }
+
+    fetch("/register", {
+        method: "POST",
+        body: new FormData(this)
+    })
+    .then(response => response.json())
+    .then(result => {
+        if(result.status === "error"){
+            alert(result.message);
+        } else {
+            alert("Registration Successful!");
+            this.reset();
+            showLogin();
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+});
+
+</script>
+
+</body>
+</html>

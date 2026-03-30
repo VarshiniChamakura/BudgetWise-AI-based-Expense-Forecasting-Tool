@@ -1,0 +1,44 @@
+.expense-table-container {
+    padding: 30px;
+}
+
+.expense-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.expense-table th {
+    background: #1f2937;
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+.expense-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.expense-table tr:hover {
+    background-color: #f9fafb;
+}
+
+.edit-btn {
+    padding: 6px 12px;
+    background: #3b82f6;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-right: 6px;
+}
+
+.delete-btn {
+    padding: 6px 12px;
+    background: #ef4444;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+}

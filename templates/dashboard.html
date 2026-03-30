@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- TOP 4 CARDS -->
+<div class="cards">
+
+    <div class="card green">
+        <h4>Monthly Budget</h4>
+        <p>₹ {{ monthly_budget }}</p>
+    </div>
+
+    <div class="card blue">
+        <h4>Total Spent</h4>
+        <p>₹ {{ total_spent }}</p>
+    </div>
+
+    <div class="card orange">
+        <h4>Today's Spend</h4>
+        <p>₹ {{ today_spent }}</p>
+    </div>
+
+    <div class="card red">
+        <h4>Remaining Balance</h4>
+        <p>₹ {{ remaining }}</p>
+    </div>
+
+</div>
+
+
+<!-- CHART SECTION -->
+<div class="charts">
+
+    <div class="chart-box">
+        <h4>Monthly Spending Trend</h4>
+        <div class="chart-placeholder">
+            Graph Area
+        </div>
+    </div>
+
+    <div class="chart-box">
+    <h4>Category Overview</h4>
+    <img src="{{ url_for('static', filename='category_chart.png') }}" width="100%">
+    </div>
+
+</div>
+
+
+<!-- FORECAST SECTION -->
+<div class="forecast-box">
+
+    <h4><i class="fa-solid fa-wand-magic-sparkles"></i> AI Forecast Suggestions</h4> 
+
+</div>
+
+{% endblock %}
